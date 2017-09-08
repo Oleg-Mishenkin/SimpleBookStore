@@ -1,9 +1,9 @@
 ﻿import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import App from './components/app';
-import CreateNew from './components/new';
-import EditNew from './components/edit';
+import App from './components/pages/app';
+import CreateNew from './components/pages/new';
+import EditNew from './components/pages/edit';
 
 render((
   <Router>

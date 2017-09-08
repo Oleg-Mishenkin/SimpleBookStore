@@ -25,3 +25,11 @@ footer {
     bottom: 0;
     height: 40px;
 }
+
+.sortable-header {
+    text-decoration: underline;
+}
+
+.sortable-header:hover {
+    cursor: pointer;
+}
