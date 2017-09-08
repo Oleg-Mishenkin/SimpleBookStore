@@ -1,16 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Http;
+using SimpleBookStore.Managers;
+using SimpleBookStore.ViewModels;
 
 namespace SimpleBookStore.Controllers.Api
 {
     public class AuthorsController : ApiController
     {
-        public IEnumerable<string> Get()
+        private readonly IBookStoreManager _bookStoreManager;
+
+        public AuthorsController(IBookStoreManager bookStoreManager)
         {
-            return new string[] { "author1", "author2" };
+            _bookStoreManager = bookStoreManager;
+        }
+
+        [HttpGet]
+        public IList<AuthorEditModel> Get(int id)
+        {
+            return _bookStoreManager.GetBookAuthors(id);
+        }
+
+        [HttpPost]
+        public IHttpActionResult Post(AuthorEditModel model)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            _bookStoreManager.AddAuthor(model);
+            return Created(Url.Content($"/edit/{model.BookId}"), model);
+        }
+
+        [HttpDelete]
+        [Route("api/authors/{bookId}/{authorId}")]
+        public IHttpActionResult Delete(int bookId, int authorId)
+        {
+            _bookStoreManager.RemoveAuthor(bookId, authorId);
+
+            return Ok();
         }
     }
 }

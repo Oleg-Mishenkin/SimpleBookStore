@@ -14,6 +14,12 @@ namespace SimpleBookStore
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "List",
+                url: "",
+                defaults: new { controller = "Home", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "NewBook",
                 url: "New",
                 defaults: new { controller = "Home", action = "Index" }

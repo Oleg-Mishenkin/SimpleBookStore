@@ -1,35 +1,48 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
+using SimpleBookStore.Managers;
+using SimpleBookStore.ViewModels;
 
 namespace SimpleBookStore.Controllers.Api
 {
     public class BooksController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        private readonly IBookStoreManager _bookStoreManager;
+
+        public BooksController(IBookStoreManager bookStoreManager)
         {
-            return new string[] { "book1", "book2" };
+            _bookStoreManager = bookStoreManager;
         }
 
-        // GET api/values/5
-        public string Get(int id)
+        [HttpGet]
+        public IList<BookListViewModel> Get()
         {
-            return "value";
+            return _bookStoreManager.GetAllBooks();
         }
 
-        // POST api/values
-        public void Post([FromBody]string value)
+        [HttpPost]
+        public IHttpActionResult Post(BookCreateModel model)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            var id = _bookStoreManager.Create(model);
+            return Created(Url.Content($"/edit/{id}"), model);
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public IHttpActionResult Put(BookEditModel model)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            _bookStoreManager.Update(model);
+
+            return Ok();
         }
 
-        // DELETE api/values/5
-        public void Delete(int id)
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
         {
+            _bookStoreManager.Delete(id);
+
+            return Ok();
         }
     }
 }

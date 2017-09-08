@@ -1,17 +1,16 @@
 ﻿import React from 'react';
 import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import App from './components/app';
+import CreateNew from './components/new';
+import EditNew from './components/edit';
 
-class App extends React.Component {
-    constructor(props, context) {
-        super(props, context);
-    }
-
-    render() {
-        return (
-            <div>
-                <h4>Update services in background</h4>
-            </div>);
-    }
-}
-
-render(<App />, document.getElementById('app'));
+render((
+  <Router>
+    <Switch>
+      <Route exact path='/Books/' component={App} />
+      <Route path='/Books/new' component={CreateNew} />
+      <Route path='/Books/edit/:id' component={EditNew} />
+    </Switch>
+  </Router>
+), document.getElementById('app'))
