@@ -8,9 +8,9 @@ import EditNew from './components/pages/edit';
 render((
   <Router>
     <Switch>
-      <Route exact path='/Books/' component={App} />
-      <Route path='/Books/new' component={CreateNew} />
-      <Route path='/Books/edit/:id' component={EditNew} />
+      <Route exact path='/' component={App} />
+      <Route path='/new' component={CreateNew} />
+      <Route path='/edit/:id' component={EditNew} />
     </Switch>
   </Router>
 ), document.getElementById('app'))

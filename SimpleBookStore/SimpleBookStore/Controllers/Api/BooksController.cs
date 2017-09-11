@@ -20,12 +20,18 @@ namespace SimpleBookStore.Controllers.Api
             return _bookStoreManager.GetAllBooks();
         }
 
+        [HttpGet]
+        public BookListViewModel Get(int id)
+        {
+            return _bookStoreManager.GetBook(id);
+        }
+
         [HttpPost]
         public IHttpActionResult Post(BookCreateModel model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
             var id = _bookStoreManager.Create(model);
-            return Created(Url.Content($"/edit/{id}"), model);
+            return Created(Url.Content($"~/edit/{id}"), id);
         }
 
         [HttpPut]

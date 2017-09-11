@@ -1,12 +1,19 @@
-﻿body {
+﻿html, body {
+  height: 100%;
+}
+
+body {
     padding-top: 50px;
-    padding-bottom: 20px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    flex: 1 0 auto;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -21,9 +28,12 @@ ul {
 }
 
 footer {
-    position: absolute;
-    bottom: 0;
     height: 40px;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #222;
+    color: whitesmoke;
 }
 
 .sortable-header {

@@ -22,7 +22,7 @@ namespace SimpleBookStore.ViewModels
         [Range(typeof(DateTime), "1/1/1800", "12/31/9999", ErrorMessage = "Value for {0} must be between {1} and {2}")]
         public DateTime PublishDate { get; set; }
 
-        [RegularExpression(@"^(97(8|9))?\d{9}(\d|X)$", ErrorMessage = "ISBN must fit the pattern")]
+        [RegularExpression(@"^(ISBN[-]*(1[03])*[ ]*(: ){0,1})*(([0-9Xx][- ]*){13}|([0-9Xx][- ]*){10})$", ErrorMessage = "ISBN must fit the pattern")]
         public string ISBN { get; set; }
 
         public byte[] Image { get; set; }

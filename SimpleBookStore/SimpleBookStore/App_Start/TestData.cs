@@ -13,7 +13,7 @@ namespace SimpleBookStore.App_Start
 
             var book1Id = booksRepository.Create(new DbBook
             {
-                Title = "Mastering Bitcoin: Programming the Open Blockchain",
+                Title = "Mastering Bitcoin",
                 Pages = 363,
                 ISBN = "978-1491954386",
                 Publisher = "O'Reilly",
@@ -29,7 +29,7 @@ namespace SimpleBookStore.App_Start
 
             var book2Id = booksRepository.Create(new DbBook
             {
-                Title = "C# 6.0 and the .NET 4.6 Framework",
+                Title = "C# 6.0,.NET 4.6",
                 Pages = 1329,
                 ISBN = "1484213335",
                 Publisher = "Apress",

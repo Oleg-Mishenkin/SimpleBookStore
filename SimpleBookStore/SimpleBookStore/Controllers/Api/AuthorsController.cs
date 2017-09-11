@@ -21,11 +21,20 @@ namespace SimpleBookStore.Controllers.Api
         }
 
         [HttpPost]
-        public IHttpActionResult Post(AuthorEditModel model)
+        public IHttpActionResult Post(AuthorCreateModel model)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            _bookStoreManager.AddAuthor(model);
-            return Created(Url.Content($"/edit/{model.BookId}"), model);
+            var id = _bookStoreManager.AddAuthor(model);
+            return Created(Url.Content($"/edit/{model.BookId}"), id);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put(AuthorEditModel model)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            _bookStoreManager.UpdateAuthor(model);
+
+            return Ok();
         }
 
         [HttpDelete]

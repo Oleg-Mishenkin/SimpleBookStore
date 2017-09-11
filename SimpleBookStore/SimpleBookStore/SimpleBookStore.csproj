@@ -204,6 +204,7 @@
     <Compile Include="Managers\IBookStoreManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AuthorCreateModel.cs" />
     <Compile Include="ViewModels\AuthorEditModel.cs" />
     <Compile Include="ViewModels\AuthorViewModel.cs" />
     <Compile Include="ViewModels\BookCreateModel.cs" />

@@ -40,6 +40,11 @@ namespace SimpleBookStore.Managers
             }).ToList();
         }
 
+        public BookListViewModel GetBook(int id)
+        {
+            return GetAllBooks().FirstOrDefault(x => x.Id == id);
+        }
+
         public IList<AuthorEditModel> GetBookAuthors(int bookId)
         {
             return _authorRepository.GetAllForBook(bookId).Select(x => new AuthorEditModel
@@ -85,10 +90,21 @@ namespace SimpleBookStore.Managers
             });
         }
 
-        public int AddAuthor(AuthorEditModel model)
+        public int AddAuthor(AuthorCreateModel model)
         {
             return _authorRepository.Create(new DbAuthor
             {
+                BookId = model.BookId,
+                FirstName = model.AuthorFirstName,
+                LastName = model.AuthorLastName
+            });
+        }
+
+        public void UpdateAuthor(AuthorEditModel model)
+        {
+            _authorRepository.Update(new DbAuthor
+            {
+                Id = model.Id,
                 BookId = model.BookId,
                 FirstName = model.AuthorFirstName,
                 LastName = model.AuthorLastName

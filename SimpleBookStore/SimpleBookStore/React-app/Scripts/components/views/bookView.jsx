@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const BookView = ({ book, onRemoveClick }) => {
   return (
     <tr>
-      <th><Link to={`/Books/edit/${book.Id}`}>{book.Title}</Link></th>
+      <th><Link to={`/edit/${book.Id}`}>{book.Title}</Link></th>
       <td>
         <ul>
           {book.Authors.map(function(author) { return <li key={author.Id}>{author.AuthorFirstName} {author.AuthorLastName}</li> })}

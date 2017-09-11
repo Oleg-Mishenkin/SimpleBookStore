@@ -28,6 +28,13 @@ namespace SimpleBookStore.DAL
             return newId;
         }
 
+        public void Update(DbAuthor author)
+        {
+            var dbbook = Get(author.Id);
+            dbbook.FirstName = author.FirstName;
+            dbbook.LastName = author.LastName;
+        }
+
         public IList<DbAuthor> GetAll()
         {
             return _authors;

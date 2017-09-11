@@ -1,5 +1,5 @@
 ﻿import React, { PropTypes } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import ApiService from '../common/apiService';
 import BookView from '../views/bookView';
 import SortableHeader from '../views/sortableHeader';
@@ -14,6 +14,7 @@ class App extends React.Component {
     this.storageService = new StorageService();
 
     this.state = {
+      hasError: false,
       books: [],
       activeHeader: ''
     }
@@ -25,7 +26,6 @@ class App extends React.Component {
     var that = this;
     this.manager.getAll().then((data) => {
       var books = data.data;
-      debugger;
       var sortObj = this.storageService.getSortProp();
       if (sortObj) {
         books = Sort(books, sortObj.sortProp, sortObj.sortAsc);
@@ -45,7 +45,7 @@ class App extends React.Component {
     }).catch(function (error) {
       console.log(error);
       that.setState({ error: true });
-    });;
+    });
   }
 
   onSortChanged(sortProp, sortAsc) {
@@ -72,7 +72,7 @@ class App extends React.Component {
           <h1>Books</h1>
         </div>
         <div className="btn-group" role="group">
-            <Link role="button" className="btn btn-default" to={'/Books/new'}>Create new</Link>
+          <Link role="button" className="btn btn-default" to={'/new'}>Create new</Link>
         </div>
         <table className="table table-striped">
           <thead>

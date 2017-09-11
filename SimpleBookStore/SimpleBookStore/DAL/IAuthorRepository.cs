@@ -8,6 +8,8 @@ namespace SimpleBookStore.DAL
 
         int Create(DbAuthor author);
 
+        void Update(DbAuthor author);
+
         IList<DbAuthor> GetAll();
 
         IList<DbAuthor> GetAllForBook(int bookId);
