@@ -84,7 +84,6 @@ namespace SimpleBookStore.Managers
                 Pages = model.Pages,
                 PublishDate = model.PublishDate,
                 Publisher = model.Publisher,
-                Image = model.Image,
                 Title = model.Title,
                 ISBN = model.ISBN
             });

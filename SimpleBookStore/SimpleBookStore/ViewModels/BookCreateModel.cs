@@ -22,7 +22,7 @@ namespace SimpleBookStore.ViewModels
         [RegularExpression(@"^(ISBN[-]*(1[03])*[ ]*(: ){0,1})*(([0-9Xx][- ]*){13}|([0-9Xx][- ]*){10})$", ErrorMessage = "ISBN must fit the pattern")]
         public string ISBN { get; set; }
 
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
 
         [Required]
         [StringLength(20, ErrorMessage = "The {0} must be maximum {1} characters long")]

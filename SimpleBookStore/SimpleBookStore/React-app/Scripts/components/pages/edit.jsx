@@ -85,7 +85,7 @@ class Edit extends LinkedComponent {
                     <div className="row">
                         <div className="col-md-6">
                             <BookEdit title={linked.title} pages={linked.pages} publisher={linked.publisher} publishDate={linked.publishDate} isbn={linked.isbn} />
-
+                            
                             <button className="btn btn-primary"
                                 type="submit"
                                 value="Submit"

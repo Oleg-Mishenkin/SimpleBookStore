@@ -10,6 +10,6 @@ namespace SimpleBookStore.DAL
         public string Publisher { get; set; }
         public DateTime PublishDate { get; set; }
         public string ISBN { get; set; }
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
     }
 }

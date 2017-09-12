@@ -32,7 +32,6 @@ namespace SimpleBookStore.DAL
             dbbook.Title = book.Title;
             dbbook.Publisher = book.Publisher;
             dbbook.PublishDate = book.PublishDate;
-            dbbook.Image = book.Image;
         }
 
         public int Create(DbBook book)

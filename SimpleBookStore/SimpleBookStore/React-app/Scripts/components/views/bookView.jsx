@@ -7,14 +7,14 @@ const BookView = ({ book, onRemoveClick }) => {
       <th><Link to={`/edit/${book.Id}`}>{book.Title}</Link></th>
       <td>
         <ul>
-          {book.Authors.map(function(author) { return <li key={author.Id}>{author.AuthorFirstName} {author.AuthorLastName}</li> })}
+          {book.Authors.map(function (author) { return <li key={author.Id}>{author.AuthorFirstName} {author.AuthorLastName}</li> })}
         </ul>
       </td>
       <td>{book.Pages}</td>
       <td>{book.Publisher}</td>
       <td>{(new Date(book.PublishDate)).toLocaleDateString()}</td>
       <td>{book.ISBN}</td>
-      <td></td>
+      <td>{book.Image ? <div className="image-preview"><img alt="Book Image" src={book.Image} /></div> : null}</td>
       <td><button type="button" className="btn btn-default" onClick={onRemoveClick}><span className="glyphicon glyphicon-remove" aria-hidden="true"></span></button></td>
     </tr>
   );

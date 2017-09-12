@@ -14,7 +14,6 @@ const BookEdit = ({ title, pages, publisher, publishDate, isbn }) => {
         .check(x => x <= 10000 && x > 0, 'Pages should be between 1 and 10000');
 
     publisher
-        .check(isRequired)
         .check(x => x.length <= 30, 'Publisher is too long');
 
     publishDate

@@ -19,7 +19,7 @@ namespace SimpleBookStore.ViewModels
 
         public string ISBN { get; set; }
 
-        public byte[] Image { get; set; }
+        public string Image { get; set; }
 
         public IList<AuthorViewModel> Authors { get; set; } 
     }

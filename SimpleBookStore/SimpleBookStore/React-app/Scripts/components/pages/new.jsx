@@ -17,12 +17,27 @@ class New extends LinkedComponent {
             publisher: '',
             publishDate: '',
             isbn: '',
+            image: '',
             authorFirstName: '',
-            authorLastName: '',
+            authorLastName: ''
         };
 
         this.manager = new ApiService();
-        this.onSubmit = this.onSubmit.bind(this)
+        this.onSubmit = this.onSubmit.bind(this);
+        this.onChangeImage = this.onChangeImage.bind(this);
+    }
+
+    onChangeImage(evt) {
+        var that = this;
+        var reader = new FileReader();
+        var file = evt.target.files[0];
+
+        reader.onload = function (upload) {
+            that.setState({
+                image: upload.target.result
+            });
+        };
+        reader.readAsDataURL(file);
     }
 
     onSubmit(e) {
@@ -38,7 +53,7 @@ class New extends LinkedComponent {
 
     render() {
         const linked = this.linkAll();
-        
+
         linked.authorFirstName
             .check(isRequired)
             .check(x => x.length <= 20, 'Author First Name is too long');
@@ -54,10 +69,14 @@ class New extends LinkedComponent {
                     <h1>Create new book</h1>
                 </div>
 
-                <BookEdit title={linked.title} pages={linked.pages} publisher={linked.publisher} publishDate={linked.publishDate} isbn={linked.isbn} />                
+                <BookEdit title={linked.title} pages={linked.pages} publisher={linked.publisher} publishDate={linked.publishDate} isbn={linked.isbn} />
                 <ValidatedInput id="authorFirstName" valueLink={linked.authorFirstName} label="Author First Name" />
                 <ValidatedInput id="authorLastName" valueLink={linked.authorLastName} label="Author Last Name" />
-
+                <div className="form-group">
+                    <label className="control-label">Book Image</label>
+                    <input type="file" encType='text/plain' id="inputFile" accept="image/*" onChange={this.onChangeImage} />
+                    <p className="help-block">Upload image for book</p>
+                </div>
                 <button className="btn btn-primary"
                     type="submit"
                     value="Submit"
