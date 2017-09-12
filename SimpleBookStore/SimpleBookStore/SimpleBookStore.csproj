@@ -231,6 +231,7 @@
     <Content Include="React-app\Scripts\components\common\sortHelper.js" />
     <Content Include="React-app\Scripts\components\common\storageService.js" />
     <Content Include="React-app\Scripts\index.jsx" />
+    <Content Include="Scripts\bundle.js" />
     <Content Include="webpack.config.js" />
     <Content Include="package.json" />
     <Content Include="React-app\Scripts\components\libs\linkTags.jsx" />
@@ -269,7 +270,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="React-app\Styles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
