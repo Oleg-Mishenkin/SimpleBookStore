@@ -129,8 +129,6 @@ class EditAuthor extends LinkedComponent {
                 that.props.onError(error);
             });
         } else {
-                debugger;
-            
             this.manager.createAuthor(this.state).then((response) => {
                 that.setState({ Id: response.data }, function () {
                     authorLink.set(that.state);
